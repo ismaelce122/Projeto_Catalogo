@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+.form_cadastro {
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px black;
+}
+.input_produtos {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    border: 0px;
+    background-color: rgb(197, 218, 240);
+    margin-bottom: 10px;
+}
+.btn_cadastrar {
+    width: 100%;
+    background-color: rgb(197, 218, 240);
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn_cadastrar:hover {
+    background-color: rgb(197, 218, 240, 70%);
+} 
