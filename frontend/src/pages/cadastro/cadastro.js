@@ -1,12 +1,11 @@
+import FormCadastro from '../../components/formCadastro/formCadastro'
 import './cadastro.css'
 
 function Cadastro() {
     return (
         <div>
-            <form class="form_cadastro">
-            <label>Email</label>
-            <input type="email" required />
-            </form>
+            <h1 className='cadastro_produtos'>Cadastro de Produtos</h1>
+            <FormCadastro />
         </div>
     )
 }
