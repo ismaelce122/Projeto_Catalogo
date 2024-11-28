@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/home';
 import Cadastro from './pages/cadastro/cadastro';
 
+
 function App() {
   return (
     <Router>
@@ -13,4 +14,6 @@ function App() {
   );
 }
 
+
 export default App;
+
