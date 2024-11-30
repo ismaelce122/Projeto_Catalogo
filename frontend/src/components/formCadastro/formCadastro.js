@@ -13,7 +13,7 @@ function FormCadastro() {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        setProdutos({...produtos, [name]: value})
+        setProdutos({ ...produtos, [name]: value })
     }
 
     const handleSubmit = (e) => {
@@ -28,14 +28,21 @@ function FormCadastro() {
                     preco: '',
                     validade: ''
                 })
-                .catch(error => {
-                    console.error('Erro ao Cadastrar Produto: ', error)
+            })
+            .catch(error => {
+                console.error('Erro ao Cadastrar Produto: ', error)
+                alert('Erro ao Cadastrar Produto :-(')
+                setProdutos({
+                    nome: '',
+                    descricao: '',
+                    categoria: '',
+                    preco: '',
+                    validade: ''
                 })
             })
-            console.log(produtos)
     }
 
-    return(
+    return (
         <div>
             <form className='form_cadastro' onSubmit={handleSubmit} >
                 <label>Nome:</label>

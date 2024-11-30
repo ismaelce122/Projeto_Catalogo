@@ -4,7 +4,9 @@ import './cadastro.css'
 function Cadastro() {
     return (
         <div>
-            <h1 className='cadastro_produtos'>Cadastro de Produtos</h1>
+            <div className='cadastro_produtos'>
+                <h1>Cadastro de Produtos</h1>
+            </div>
             <FormCadastro />
         </div>
     )
