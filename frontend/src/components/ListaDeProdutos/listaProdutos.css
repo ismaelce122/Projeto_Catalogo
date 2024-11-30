@@ -1,0 +1,9 @@
+.lista_produtos {
+    background-color: yellow;
+    list-style: none;
+    text-align: center;
+    width: 500px;
+    margin: auto;
+    border: 0px;
+    border-radius: 15px;
+}
