@@ -19,3 +19,9 @@ INSERT INTO produtos (nome, descricao, categoria, preco, validade)
 VALUES ('vestido', 'preto', 'longo', '88.99', '20/04/2025');
 
 SELECT * FROM produtos;
+
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=ecommerce
