@@ -1,0 +1,28 @@
+.lista-usuarios {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .lista-usuarios h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .lista-usuarios ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lista-usuarios li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .lista-usuarios li:last-child {
+    border-bottom: none;
+  }
+  
