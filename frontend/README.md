@@ -15,7 +15,7 @@ DROP TABLE products;
 
 DROP DATABASE catalogo;
 
-INSERT INTO produtos (nome, descricao, categoria, preco, validade) 
+INSERT INTO produtos (nome, descricao, categoria, preco, img_url) 
 VALUES ('vestido', 'preto', 'longo', '88.99', '20/04/2025');
 
 SELECT * FROM produtos;
