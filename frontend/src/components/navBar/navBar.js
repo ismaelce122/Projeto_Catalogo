@@ -19,7 +19,7 @@ function NavBar() {
                                 <Link to='/' class="nav-link active btn_menu" aria-current="page">Home</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to='#' class="nav-link active btn_menu" aria-current="page">Login</Link>
+                                <Link to='/login' class="nav-link active btn_menu" aria-current="page">Login</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to='/cadastrar_usuario' class="nav-link active btn_menu" aria-current="page">Cadastre-se</Link>

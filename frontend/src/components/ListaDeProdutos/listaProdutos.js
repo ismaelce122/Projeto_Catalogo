@@ -20,7 +20,7 @@ function ListaProdutos() {
         <div className='container-fluid row row-cols-3 p-4 fade_in'>
             {produtos.map((produto) => {
                 return (
-                    <div key={produto.id} className='lista_produtos mx-2'>
+                    <div key={produto.id} className='lista_produtos mx-2 mt-2'>
                         <div className='p-2'>
                             <h3>{produto.nome}</h3>
                         </div>

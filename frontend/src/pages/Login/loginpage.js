@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import './App.css'; // Estilos para o componente
 
-function LoginPage() {
+function Login() {
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -26,11 +25,12 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className="container mt-2 p-2">
+      <form className="form-control" onSubmit={handleSubmit}>
+        <h2 className="text-center">Login</h2>
         
         <input
+          className="form-control mb-2"
           type="text"
           name="firstName"
           placeholder="Nome"
@@ -38,6 +38,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className="form-control mb-2"
           type="text"
           name="lastName"
           placeholder="Sobrenome"
@@ -45,6 +46,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className="form-control mb-2"
           type="email"
           name="email"
           placeholder="E-mail"
@@ -52,6 +54,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className="form-control mb-2"
           type="password"
           name="password"
           placeholder="Senha"
@@ -59,10 +62,10 @@ function LoginPage() {
           onChange={handleChange}
         />
         
-        <button type="submit">Entrar</button>
+        <button className="btn btn-primary mb-2" type="submit">Entrar</button>
       </form>
     </div>
   );
 }
 
-export default LoginPage;
+export default Login
