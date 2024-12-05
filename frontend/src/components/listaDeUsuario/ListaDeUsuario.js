@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ListaDeUsuario.css'
 
 const ListaDeUsuario = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -13,15 +14,17 @@ const ListaDeUsuario = () => {
   }, []);
 
   return (
-    <div>
+    <div className='lista-usuarios mt-4'>
       <h1>Lista de Usuários</h1>
       <ul>
-        {usuarios.map((usuario) => (
-          <li key={usuario.id}>
-            <strong>Nome:</strong> {usuario.nome} <br />
-            <strong>Email:</strong> {usuario.email}
-          </li>
-        ))}
+        {usuarios.map((usuario) => {
+          return (
+            <li key={usuario.id}>
+              <strong>Nome:</strong> {usuario.nome} <br />
+              <strong>Email:</strong> {usuario.email}
+            </li>
+          )
+        })}
       </ul>
     </div>
   );

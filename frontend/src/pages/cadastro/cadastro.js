@@ -3,8 +3,8 @@ import './cadastro.css'
 
 function Cadastro() {
     return (
-        <div>
-            <div className='cadastro_produtos'>
+        <div className='mt-2'>
+            <div className='cadastro_produtos mb-4'>
                 <h1>Cadastro de Produtos</h1>
             </div>
             <FormCadastro />

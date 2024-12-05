@@ -8,7 +8,7 @@ nome VARCHAR(100) NOT NULL,
 descricao TEXT,
 categoria VARCHAR(50),
 preco DECIMAL(10, 2) NOT NULL,
-validade VARCHAR(50)
+img_url VARCHAR(50)
 );
 
 DROP TABLE products;
@@ -19,6 +19,8 @@ INSERT INTO produtos (nome, descricao, categoria, preco, img_url)
 VALUES ('vestido', 'preto', 'longo', '88.99', '20/04/2025');
 
 SELECT * FROM produtos;
+
+DESC produtos;
 
 
 DB_HOST=localhost

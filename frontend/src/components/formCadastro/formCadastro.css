@@ -25,6 +25,7 @@
     padding: 10px;
     border: 0px;
     border-radius: 5px;
+    margin-top: 5px;
     cursor: pointer;
 }
 .btn_cadastrar:hover {

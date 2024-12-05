@@ -1,9 +1,10 @@
 .lista_produtos {
-    background-color: yellow;
-    list-style: none;
     text-align: center;
-    width: 500px;
-    margin: auto;
-    border: 0px;
+    border: 2px solid black;
     border-radius: 15px;
+    width: 400px;
+}
+
+.btn {
+    width: 160px;
 }

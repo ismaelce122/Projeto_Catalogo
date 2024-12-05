@@ -1,7 +1,7 @@
 function Home() {
     return(
-        <div>
-            <h1>oi</h1>
+        <div className="container text-center mt-2">
+            <h1>Olá Seja Bem-Vindo</h1>
         </div>
     )
 }
