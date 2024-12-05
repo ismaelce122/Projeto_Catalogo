@@ -34,7 +34,7 @@ function NavBar() {
                                 <Link to='/cadastro' class="nav-link active btn_menu" aria-current="page">Cadastrar Produtos</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to='#' class="nav-link active btn_menu" aria-current="page">Comentários</Link>
+                                <Link to='/comentarios' class="nav-link active btn_menu" aria-current="page">Comentários</Link>
                             </li>
                         </ul>
                     </div>
