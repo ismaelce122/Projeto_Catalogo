@@ -17,7 +17,7 @@ function ListaProdutos() {
     }, [])
 
     return (
-        <div className='container-fluid row row-cols-3 p-4'>
+        <div className='container-fluid row row-cols-3 p-4 fade_in'>
             {produtos.map((produto) => {
                 return (
                     <div key={produto.id} className='lista_produtos mx-2'>

@@ -31,3 +31,16 @@
 .btn_cadastrar:hover {
     background-color: rgb(197, 218, 240, 70%);
 } 
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    animation: fadeIn 0.5s ease-in-out 1;
+}

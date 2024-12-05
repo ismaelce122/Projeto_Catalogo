@@ -14,7 +14,7 @@ const ListaDeUsuario = () => {
   }, []);
 
   return (
-    <div className='lista-usuarios mt-4'>
+    <div className='lista-usuarios mt-4 fade_in'>
       <h1>Lista de Usuários</h1>
       <ul>
         {usuarios.map((usuario) => {
