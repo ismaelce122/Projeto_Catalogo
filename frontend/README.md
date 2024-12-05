@@ -11,6 +11,13 @@ preco DECIMAL(10, 2) NOT NULL,
 img_url VARCHAR(50)
 );
 
+CREATE TABLE usuarios (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+email TEXT,
+senha VARCHAR(50)
+);
+
 DROP TABLE products;
 
 DROP DATABASE catalogo;
