@@ -4,37 +4,37 @@ import './navBar.css'
 function NavBar() {
     return (
         <div>
-            <nav class="navbar bg-dark border-bottom border-body">
-                <div class="container-fluid text-light">
+            <nav className="navbar bg-dark border-bottom border-body">
+                <div className="container-fluid text-light">
                     <h1>
-                        <Link to='/' class="nav-link active" aria-current="page">Super Select</Link>
+                        <Link to='/' className="nav-link active" aria-current="page">Super Select</Link>
                     </h1>
                 </div>
             </nav>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link to='/' class="nav-link active btn_menu" aria-current="page">Home</Link>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link to='/' className="nav-link active btn_menu" aria-current="page">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/login' class="nav-link active btn_menu" aria-current="page">Login</Link>
+                            <li className="nav-item">
+                                <Link to='/login' className="nav-link active btn_menu" aria-current="page">Login</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/cadastrar_usuario' class="nav-link active btn_menu" aria-current="page">Cadastre-se</Link>
+                            <li className="nav-item">
+                                <Link to='/usuario' className="nav-link active btn_menu" aria-current="page">Cadastre-se</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/lista_de_usuarios' class="nav-link active btn_menu" aria-current="page">Usuários Cadastrados</Link>
+                            <li className="nav-item">
+                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu" aria-current="page">Usuários Cadastrados</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/catalogo_de_produtos' class="nav-link active btn_menu" aria-current="page">Catálogo de Produtos</Link>
+                            <li className="nav-item">
+                                <Link to='/catalogo_de_produtos' className="nav-link active btn_menu" aria-current="page">Catálogo de Produtos</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/cadastro' class="nav-link active btn_menu" aria-current="page">Cadastrar Produtos</Link>
+                            <li className="nav-item">
+                                <Link to='/cadastro' className="nav-link active btn_menu" aria-current="page">Cadastrar Produtos</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to='/comentarios' class="nav-link active btn_menu" aria-current="page">Comentários</Link>
+                            <li className="nav-item">
+                                <Link to='/comentarios' className="nav-link active btn_menu" aria-current="page">Comentários</Link>
                             </li>
                         </ul>
                     </div>

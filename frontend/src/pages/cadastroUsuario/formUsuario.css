@@ -1,8 +1,6 @@
-.lista_produtos {
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 300px;
+.form_usuario {
+    width: 600px;
+    margin: auto;
 }
 
 @keyframes fadeIn {

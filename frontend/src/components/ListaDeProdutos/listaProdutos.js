@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import './listaProdutos.css'
 
 function ListaProdutos() {
@@ -17,28 +18,35 @@ function ListaProdutos() {
     }, [])
 
     return (
-        <div className='container-fluid row row-cols-3 p-4 fade_in'>
-            {produtos.map((produto) => {
-                return (
-                    <div key={produto.id} className='lista_produtos mx-2 mt-2'>
-                        <div className='p-2'>
-                            <h3>{produto.nome}</h3>
+        <div className='container-fluid'>
+            <div className='d-flex justify-content-around flex-wrap'>
+                {produtos.map((produto) => {
+                    return (
+                        <div key={produto.id} className='lista_produtos mt-2'>
+                            <div className='p-2'>
+                                <h4>{produto.nome}</h4>
+                            </div>
+                            <div>
+                                <img src={produto.img_url} alt={produto.nome} style={{ width: '150px', height: '150px' }} />
+                            </div>
+                            <div className='text-center mt-1'>
+                                <div className='row'>
+                                    <span className='col-12'>{produto.descricao}</span>
+                                    <span className='col-12'>{produto.categoria}</span>
+                                    <span className='col-12'>Preço: R${produto.preco}</span>
+                                </div>
+                            </div>
+                            <div className='text-center'>
+                                <div className='row p-4'>
+                                    <Link to='#' className='btn btn-info'>Comentar</Link>
+                                    <Link to='#' className='btn btn-warning mt-1'>Alterar</Link>
+                                    <Link to='#' className='btn btn-danger mt-1'>Remover</Link>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src={produto.img_url} alt={produto.nome} style={{ width: '150px', height: '150px' }} />
-                        </div>
-                        <div className='text-center row row-cols-12 p-3'>
-                            <span>{produto.descricao}</span>
-                            <span>{produto.categoria}</span>
-                            <span>Preço: R${produto.preco}</span>
-                        </div>
-                        <div className='p-2'>
-                            <a href='/login' className='btn btn-warning mx-2'>Alterar</a>
-                            <a href='/cadastro' className='btn btn-danger'>Remover</a>
-                        </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
         </div>
     )
 }

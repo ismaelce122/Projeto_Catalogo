@@ -1,6 +1,9 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
-const authenticateToken = (req, res, next) => {
+dotenv.config()
+
+const Token = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ message: 'Token não fornecido' });
 
@@ -14,4 +17,4 @@ const authenticateToken = (req, res, next) => {
   }
 };
 
-module.exports = authenticateToken;
+export default Token

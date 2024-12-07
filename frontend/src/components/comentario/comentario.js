@@ -6,9 +6,9 @@ const Comentario = () => {
 
   useEffect(() => {
     const dadosDeUsuarios = [
-      { id: 1, nome: 'João', comentario: 'joao@example.com' },
-      { id: 2, nome: 'Maria', comentario: 'maria@example.com' },
-      { id: 3, nome: 'Carlos', comentario: 'carlos@example.com' },
+      { id: 1, nome: 'João', comentario: 'Ótimo Produto!!!' },
+      { id: 2, nome: 'Maria', comentario: 'Chegou no Prazo :-) !!!' },
+      { id: 3, nome: 'Carlos', comentario: 'Produto muito bem Embalado!!!' }
     ];
     setComentarios(dadosDeUsuarios);
   }, []);
@@ -20,8 +20,8 @@ const Comentario = () => {
         {comentarios.map((comentario) => {
           return (
             <li key={comentario.id}>
-              <strong>Nome:</strong> {comentario.nome} <br />
-              <strong>Comentários:</strong> {comentario.email}
+              <strong>Usuário:</strong> {comentario.nome} <br />
+              <strong>Comentário:</strong> {comentario.comentario}
             </li>
           )
         })}

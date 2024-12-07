@@ -1,15 +1,15 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const userModel = require('../models/userModel');
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import userModel from '../models/userModel'
 
-const register = async (req, res) => {
-  const { name, email, password } = req.body;
+export const Registrar = async (req, res) => {
+  const { nome, email, senha } = req.body;
   try {
-    const userExists = await userModel.findUserByEmail(email);
+    const userExists = await userModel.ProcurarEmail(email);
     if (userExists) return res.status(400).json({ message: 'Email já cadastrado' });
 
-    const passwordHash = await bcrypt.hash(password, 10);
-    const userId = await userModel.createUser(name, email, passwordHash);
+    const senhaHash = await bcrypt.hash(senha, 10);
+    const userId = await userModel.CriarUsuario(nome, email, senhaHash);
 
     res.status(201).json({ message: 'Usuário criado', userId });
   } catch (error) {
@@ -17,10 +17,10 @@ const register = async (req, res) => {
   }
 };
 
-const login = async (req, res) => {
+export const Logar = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await userModel.findUserByEmail(email);
+    const user = await userModel.ProcurarEmail(email);
     if (!user) return res.status(400).json({ message: 'Usuário ou senha inválidos' });
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -33,5 +33,3 @@ const login = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-module.exports = { register, login };

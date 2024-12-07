@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import './ListaDeUsuario.css'
 
 const ListaDeUsuario = () => {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    const dadosDeUsuarios = [
-      { id: 1, nome: 'João', email: 'joao@example.com' },
-      { id: 2, nome: 'Maria', email: 'maria@example.com' },
-      { id: 3, nome: 'Carlos', email: 'carlos@example.com' },
-    ];
-    setUsuarios(dadosDeUsuarios);
+    axios.get('http://localhost:3001/lista_de_usuarios')
+      .then(response => {
+        console.log(response.data)
+        setUsuarios(response.data)
+      })
+      .catch(error => {
+        console.error('Erro ao Buscar Dados:', error)
+      })
   }, []);
 
   return (
@@ -30,4 +33,4 @@ const ListaDeUsuario = () => {
   );
 };
 
-export default ListaDeUsuario;
+export default ListaDeUsuario
