@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import userModel from '../models/userModel'
 
 export const Registrar = async (req, res) => {
-  const { nome, email, senha } = req.body;
+  const { nome, email, senha } = req.body;aa
   try {
     const userExists = await userModel.ProcurarEmail(email);
     if (userExists) return res.status(400).json({ message: 'Email já cadastrado' });
@@ -18,13 +18,13 @@ export const Registrar = async (req, res) => {
 };
 
 export const Logar = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, senha } = req.body;
   try {
-    const user = await userModel.ProcurarEmail(email);
-    if (!user) return res.status(400).json({ message: 'Usuário ou senha inválidos' });
+    const emailValido = await userModel.ProcurarEmail(email);
+    if (!emailValido) return res.status(400).json({ message: 'E-mail Inválido!!!' });
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) return res.status(400).json({ message: 'Usuário ou senha inválidos' });
+    const senhaValida = await bcrypt.compare(senha, user.senha);
+    if (!senhaValida) return res.status(400).json({ message: 'Usuário Inválido!!!' });
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     console.log(token) // analisar valores
