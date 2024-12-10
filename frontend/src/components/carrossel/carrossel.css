@@ -1,0 +1,22 @@
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Limita a altura máxima das imagens */
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para o texto */
+    color: white; /* Cor do texto */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+  }
+  
+  .carousel-caption h3 {
+    font-size: 1.5rem; /* Tamanho da fonte para o título */
+    margin: 0;
+  }
+  
+  .carousel-caption p {
+    font-size: 1rem; /* Tamanho da fonte para a descrição */
+  }
+  
