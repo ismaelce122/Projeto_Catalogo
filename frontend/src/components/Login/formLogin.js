@@ -1,27 +1,31 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import './formLogin.css';
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './formLogin.css'
 
 const FormLogin = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const navigate = useNavigate()
+  const [erro, setErro] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:3001/logar', {email, senha})
-      const { token } = response.data
+      const { token, usuario } = response.data
       // Armazenar o Token no LocalStorage
       localStorage.setItem('token', token)
-      console.log('Login Efetuado com Sucesso!!!, Token Armazenado: ', token)
+      localStorage.setItem('usuario', usuario)
+      console.log('Login Efetuado com Sucesso!!!  Usuário:', usuario)
       alert('Login Efetuado com Sucesso :-)')
       setEmail('')
       setSenha('')
+      navigate('/')
     }
     catch(error) {
       console.error('Erro ao Fazer Login: ', error)
-      setEmail('')
-      setSenha('')
+      setErro(error.response.data.message)
     }
   }
 
@@ -31,26 +35,17 @@ const FormLogin = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
-          <input 
-            type='email'
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required
-          />
+          <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
         <div>
           <label>Senha:</label>
-          <input 
-            type='password'
-            value={senha} 
-            onChange={(e) => setSenha(e.target.value)} 
-            required
-          />
+          <input type='password' name='senha' value={senha} onChange={(e) => setSenha(e.target.value)} required/>
         </div>
         <button type="submit">Entrar</button>
       </form>
+      <div style={{color: 'red'}}>{erro}</div>
     </div>
-  );
-};
+  )
+}
 
 export default FormLogin;

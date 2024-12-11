@@ -48,18 +48,18 @@ app.post('/logar', async (req, res) => {
     const sqlEmail = 'SELECT * FROM usuarios WHERE email = ?'
     try {
         const [consulta] = await pool.query(sqlEmail, [email])
-        if (!consulta) {
+        if(!consulta) {
             return res.status(400).json({ message: 'E-mail Inválido!!!' })
         }
-        const user = consulta[0]
-        const senhaValida = await bcrypt.compare(senha, user.senha);
-        if (!senhaValida) {
-            return res.status(400).json({ message: 'Usuário Inválido!!!' })
+        const user = consulta[0].senha
+        const usuario = consulta[0].nome
+        const senhaValida = await bcrypt.compare(senha, user)
+        if(!senhaValida) {
+            return res.status(400).json({ message: 'senha inválida' })
         }
 
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        console.log(token)
-        res.json({ token });
+        const token = jwt.sign({ id: usuario }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token, usuario });
     } 
     catch(error) {
         res.status(500).json({ error: error.message })

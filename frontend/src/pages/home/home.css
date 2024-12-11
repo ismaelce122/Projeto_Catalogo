@@ -1,13 +1,47 @@
-@keyframes animateZoom {
+@keyframes typing {
     from {
-        -webkit-transform: scale(0);
+        width: 0;
     }
     to {
-        -webkit-transform: scale(2);
+        width: 100%;
     }
 }
 
-.zoom {
-    animation: animateZoom 1s linear infinite;
-    transition: transform 0.5s ease-in-out;
+@keyframes blink-caret {
+    from {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+    to {
+        border-color: transparent;
+    }
+}
+
+.titulo {
+    overflow: hidden;
+    border-right: 2px solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+.box {
+    width: 1100px;
+    margin: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    animation: fadeIn 0.5s ease-in-out 1;
 }
