@@ -13,7 +13,7 @@ function Home() {
     return(
         <div className="container-fluid fade_in text-center mt-2">
             <div className='box'>
-                <h1 className='titulo'>Bem-Vindo(a), {usuario}</h1>
+                {usuario && <h1 className='titulo'>Bem-Vindo(a), {usuario}</h1>}
             </div>
             <ImageCarousel />
         </div>
