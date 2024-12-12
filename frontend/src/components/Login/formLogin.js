@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import './formLogin.css'
 
 const FormLogin = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  const navigate = useNavigate()
   const [erro, setErro] = useState('')
 
   const handleSubmit = async (e) => {
@@ -22,6 +22,7 @@ const FormLogin = () => {
       setEmail('')
       setSenha('')
       navigate('/')
+      window.location.reload()
     }
     catch(error) {
       console.error('Erro ao Fazer Login: ', error)
