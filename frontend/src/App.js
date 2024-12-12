@@ -21,6 +21,7 @@ function App() {
         <Route path='/cadastrar_usuario' element={<FormUsuario />} />
         <Route path='/lista_de_usuarios' element={<ListaDeUsuario />} />
         <Route path='/comentarios' element={<Comentario />} />
+        <Route path='/criar_comentarios' element={<Comentario />} />
       </Routes>
       <Footer />
     </Router>

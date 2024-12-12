@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './App.css'; // Estilos para o componente
+import styles from './LoginPage.module.css'; // Importando o CSS module
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -26,11 +26,12 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className={styles.loginContainer}>
+      <form className={styles.loginForm} onSubmit={handleSubmit}>
+        <h2 className={styles.heading}>Login</h2>
         
         <input
+          className={styles.inputField}
           type="text"
           name="firstName"
           placeholder="Nome"
@@ -38,6 +39,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className={styles.inputField}
           type="text"
           name="lastName"
           placeholder="Sobrenome"
@@ -45,6 +47,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className={styles.inputField}
           type="email"
           name="email"
           placeholder="E-mail"
@@ -52,6 +55,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         <input
+          className={styles.inputField}
           type="password"
           name="password"
           placeholder="Senha"
@@ -59,7 +63,7 @@ function LoginPage() {
           onChange={handleChange}
         />
         
-        <button type="submit">Entrar</button>
+        <button className={styles.submitButton} type="submit">Entrar</button>
       </form>
     </div>
   );
