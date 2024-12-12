@@ -44,7 +44,7 @@ function FormUsuario() {
   return (
     <div className="container fade_in mt-2 p-2">
       <form className="form-control form_usuario text-center" onSubmit={handleSubmit}>
-        <h2 className="text-center">Cadastrar Usuário</h2>
+        <h2 className="text-center">Cadastre-se</h2>
         <input
           className="form-control mb-2"
           type="text"

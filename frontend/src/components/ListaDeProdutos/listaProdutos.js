@@ -19,10 +19,10 @@ function ListaProdutos() {
 
     return (
         <div className='container-fluid'>
-            <div className='d-flex justify-content-around flex-wrap'>
+            <div className='d-flex justify-content-start gap-4 flex-wrap'>
                 {produtos.map((produto) => {
                     return (
-                        <div key={produto.id} className='lista_produtos mt-2'>
+                        <div key={produto.id} className='lista_produtos mt-1'>
                             <div className='p-2'>
                                 <h4>{produto.nome}</h4>
                             </div>
