@@ -7,7 +7,7 @@ function ListaProdutos() {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
-        axios.get('http://192.168.0.150:3001/catalogo_de_produtos')
+        axios.get('http://localhost:3001/catalogo_de_produtos')
             .then(response => {
                 console.log(response.data)
                 setProdutos(response.data)
