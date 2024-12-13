@@ -30,7 +30,7 @@ app.post('/api/cadastrar_usuario', async (req, res) => {
         const sqlEmail = 'SELECT * FROM usuarios WHERE email = ?'
         const [consulta] = await pool.query(sqlEmail, [email])
         if(consulta.length > 0) {
-            return res.status(400).send('E-mail já Cadastrado!!!')
+            return res.status(400).send('usuário já cadastrado')
         }
         const sql = 'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)'
         // Cripitografando Senha
@@ -48,17 +48,17 @@ app.post('/logar', async (req, res) => {
     const sqlEmail = 'SELECT * FROM usuarios WHERE email = ?'
     try {
         const [consulta] = await pool.query(sqlEmail, [email])
-        if(!consulta) {
-            return res.status(400).json({ message: 'E-mail Inválido!!!' })
+        if(!consulta[0]) {
+            return res.status(400).json({ message: 'e-mail inválido' })
         }
-        const user = consulta[0].senha
+        const user = consulta[0]
         const usuario = consulta[0].nome
-        const senhaValida = await bcrypt.compare(senha, user)
+        const senhaValida = await bcrypt.compare(senha, user.senha)
         if(!senhaValida) {
             return res.status(400).json({ message: 'senha inválida' })
         }
 
-        const token = jwt.sign({ id: usuario }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' })
         res.json({ token, usuario });
     } 
     catch(error) {

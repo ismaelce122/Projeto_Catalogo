@@ -7,7 +7,7 @@ function ListaProdutos() {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/catalogo_de_produtos')
+        axios.get('http://192.168.0.150:3001/catalogo_de_produtos')
             .then(response => {
                 console.log(response.data)
                 setProdutos(response.data)
@@ -19,7 +19,7 @@ function ListaProdutos() {
 
     return (
         <div className='container-fluid'>
-            <div className='d-flex justify-content-start gap-4 flex-wrap'>
+            <div className='d-flex justify-content-around gap-4 flex-wrap'>
                 {produtos.map((produto) => {
                     return (
                         <div key={produto.id} className='lista_produtos mt-1'>

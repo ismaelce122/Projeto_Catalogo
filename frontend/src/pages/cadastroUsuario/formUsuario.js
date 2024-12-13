@@ -8,6 +8,7 @@ function FormUsuario() {
     email: '',
     senha: ''
   });
+  const [erro, setErro] = useState('')
 
   // Função para atualizar os valores do formulário
   const handleChange = (e) => {
@@ -31,18 +32,13 @@ function FormUsuario() {
         })
       })
       .catch(error => {
-        console.error('Erro ao Cadastrar Produto: ', error)
-        alert('Erro ao Cadastrar Usuário :-(')
-        setCadastrar({
-          nome: '',
-          email: '',
-          senha: ''
-        })
+        console.error('Erro ao Cadastrar Usuário: ', error)
+        setErro(error.response.data)
     })
   };
 
   return (
-    <div className="container fade_in mt-2 p-2">
+    <div className="container d-flex justify-content-center fade_in mt-2 p-2">
       <form className="form-control form_usuario text-center" onSubmit={handleSubmit}>
         <h2 className="text-center">Cadastre-se</h2>
         <input
@@ -62,14 +58,15 @@ function FormUsuario() {
           onChange={handleChange}
         />
         <input
-          className="form-control mb-2"
+          className="form-control"
           type="password"
           name="senha"
           placeholder="Senha"
           value={cadastrar.senha}
           onChange={handleChange}
         />
-        <button className="btn btn-primary mb-2" type="submit">Cadastrar</button>
+        <div className="text-start" style={{color: 'red'}}>{erro}</div>
+        <button className="btn btn-primary mb-2 mt-2" type="submit">Cadastrar</button>
       </form>
     </div>
   );

@@ -44,7 +44,7 @@ function FormCadastro() {
     }
 
     return (
-        <div className='fade_in'>
+        <div className='container d-flex justify-content-center fade_in'>
             <form className='form_cadastro' onSubmit={handleSubmit} >
                 <label>Nome:</label>
                 <input className='input_produtos' type='text' name='nome' onChange={handleChange} value={produtos.nome} />

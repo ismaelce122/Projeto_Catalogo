@@ -1,33 +1,3 @@
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-caret {
-    from {
-        border-color: transparent;
-    }
-    50% {
-        border-color: orange;
-    }
-    to {
-        border-color: transparent;
-    }
-}
-
-.titulo {
-    overflow: hidden;
-    border-right: 2px solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 2px;
-    animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
-}
-
 .box {
     width: 1100px;
     margin: auto;

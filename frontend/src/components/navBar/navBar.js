@@ -36,11 +36,11 @@ function NavBar() {
                     </div>
                     {logado ? (
                         <div className='d-flex align-items-center gap-2'>
-                            <h4 className='text-light mt-1'>{usuario}</h4>
+                            <span className='text-light titulo'><strong>{usuario}</strong></span>
                             <Link to='#' className='d-flex' aria-current="page">
                                 <img src={IconeUser} alt='Usuário' />
                             </Link>
-                            <button className='btn_sair d-flex' onClick={handleLogout}><img src={IconeSair} alt='Logout' /></button>
+                            <button className='btn_sair d-flex' onClick={handleLogout}><img src={IconeSair} alt='Logout' title='Sair' /></button>
                         </div>
                     ) : (
                         <div className='d-flex align-items-center gap-3'>
