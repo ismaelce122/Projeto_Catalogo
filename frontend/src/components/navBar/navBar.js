@@ -8,6 +8,10 @@ import IconeUsuarios from './usuarios_cadastrados.png'
 import IconeCatalogo from './catalogo_de_produtos.png'
 import IconeCadastrar from './cadastrar_produto.png'
 import IconeComentario from './comentarios.png'
+import IconePerfil from './perfil.png'
+import IconeFavorito from './favorito.png'
+import IconeMensagem from './mensagem.png'
+import IconeNotificacao from './notificacao.png'
 import './navBar.css'
 
 function NavBar() {
@@ -22,7 +26,7 @@ function NavBar() {
             setUsuario(storedUsuario)
         }
     }, [])
-    const handleLogout = () => {
+    const Logout = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('usuario')
         setLogado(false)
@@ -50,25 +54,40 @@ function NavBar() {
                     </div>
                     {logado ? (
                         <div className='d-flex align-items-center gap-2'>
-                            <span className='text-light titulo'><strong>{usuario}</strong></span>
+                            <span className='text-light titulo'><strong>Olá, {usuario}</strong></span>
                             <div className='d-flex user' aria-current="page">
                                 <button type='button' className='btn_sair' onClick={menu_user}><img src={IconeUser} alt='Usuário' /></button>
                                 <div className='perfil_user' id='perfil'>
-                                    <Link to="#" className='menu_user mb-1'>Perfil</Link>
-                                    <Link to="#" className='menu_user mb-1'>Favoritos</Link>
-                                    <Link to="#" className='menu_user mb-1'>Mensagens</Link>
-                                    <Link to="#" className='menu_user mb-1'>Notificações</Link>
+                                    <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
+                                        <img src={IconePerfil} alt='Logout' width='20' height='20' />
+                                        Perfil
+                                    </Link>
+                                    <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
+                                        <img src={IconeFavorito} alt='Logout' width='20' height='20' />
+                                        Favoritos
+                                    </Link>
+                                    <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
+                                        <img src={IconeMensagem} alt='Logout' width='20' height='20' />
+                                        Mensagens
+                                    </Link>
+                                    <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
+                                        <img src={IconeNotificacao} alt='Logout' width='20' height='20' />
+                                        Notificações
+                                    </Link>
+                                    <button className='btn_sair menu_user mb-1 gap-1 d-flex align-items-center' onClick={Logout}>
+                                        <img src={IconeSair} alt='Logout' width='20' height='20' />
+                                        Sair
+                                    </button>
                                 </div>
                             </div>
-                            <button className='btn_sair d-flex' onClick={handleLogout}><img src={IconeSair} alt='Logout' title='Sair' /></button>
                         </div>
                     ) : (
                         <div className='d-flex align-items-center gap-3'>
                             <li className="nav-item d-flex">
-                                <Link to='/usuario' className="d-flex justify-content-center btn_login" aria-current="page">Cadastre-se</Link>
+                                <Link to='/login' className="d-flex justify-content-center btn_login" aria-current="page">Login</Link>
                             </li>
                             <li className="nav-item d-flex">
-                                <Link to='/login' className="d-flex justify-content-center btn_login" aria-current="page">Login</Link>
+                                <Link to='/usuario' className="d-flex justify-content-center btn_login" aria-current="page">Cadastre-se</Link>
                             </li>
                         </div>
                     )}
@@ -80,31 +99,31 @@ function NavBar() {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link to='/' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
-                                    <img src={IconeHome} alt='...' width='40' height='40' />
+                                    <img src={IconeHome} alt='...' width='25' height='25' />
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu gap-2 d-flex align-items-center" aria-current="page">
-                                    <img src={IconeUsuarios} alt='...' width='40' height='40' />
+                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                    <img src={IconeUsuarios} alt='...' width='25' height='25' />
                                     Usuários
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to='/catalogo_de_produtos' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
-                                    <img src={IconeCatalogo} alt='...' width='40' height='40' />
+                                    <img src={IconeCatalogo} alt='...' width='25' height='25' />
                                     Catálogo de Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to='/cadastro' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
-                                    <img src={IconeCadastrar} alt='...' width='40' height='40' />
+                                    <img src={IconeCadastrar} alt='...' width='25' height='25' />
                                     Cadastrar Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to='/comentarios' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
-                                    <img src={IconeComentario} alt='...' width='40' height='40' />
+                                    <img src={IconeComentario} alt='...' width='25' height='25' />
                                     Comentários
                                 </Link>
                             </li>
