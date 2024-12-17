@@ -22,10 +22,21 @@ const ListaDeUsuario = () => {
       <ul>
         {usuarios.map((usuario) => {
           return (
-            <li key={usuario.id}>
-              <strong>Nome:</strong> {usuario.nome} <br />
-              <strong>Email:</strong> {usuario.email}
-            </li>
+            <div key={usuario.id} className='d-flex align-items-center justify-content-between'>
+              <div>
+                <li className='d-flex flex-column'>
+                  <div>
+                    <strong>Nome:</strong> {usuario.nome}
+                  </div>
+                  <div>
+                    <strong>Email:</strong> {usuario.email}
+                  </div>
+                </li>
+              </div>
+              <div>
+                <button type='button' className='btn btn-danger'>Excluir</button>
+              </div>
+            </div>
           )
         })}
       </ul>

@@ -12,6 +12,7 @@ import IconePerfil from './perfil.png'
 import IconeFavorito from './favorito.png'
 import IconeMensagem from './mensagem.png'
 import IconeNotificacao from './notificacao.png'
+import IconeCarrinho from './carrinho.png'
 import './navBar.css'
 
 function NavBar() {
@@ -57,6 +58,7 @@ function NavBar() {
                             <span className='text-light titulo'><strong>Olá, {usuario}</strong></span>
                             <div className='d-flex user' aria-current="page">
                                 <button type='button' className='btn_sair' onClick={menu_user}><img src={IconeUser} alt='Usuário' /></button>
+                                <button type='button' className='btn_sair'><img src={IconeCarrinho} alt='Carriho de Compras' /></button>
                                 <div className='perfil_user' id='perfil'>
                                     <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
                                         <img src={IconePerfil} alt='Logout' width='20' height='20' />
@@ -74,7 +76,7 @@ function NavBar() {
                                         <img src={IconeNotificacao} alt='Logout' width='20' height='20' />
                                         Notificações
                                     </Link>
-                                    <button className='btn_sair menu_user mb-1 gap-1 d-flex align-items-center' onClick={Logout}>
+                                    <button type='button' className='btn_sair menu_user gap-1 d-flex align-items-center' onClick={Logout}>
                                         <img src={IconeSair} alt='Logout' width='20' height='20' />
                                         Sair
                                     </button>
@@ -98,31 +100,31 @@ function NavBar() {
                     <div className="navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to='/' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                <Link to='/' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeHome} alt='...' width='25' height='25' />
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeUsuarios} alt='...' width='25' height='25' />
                                     Usuários
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/catalogo_de_produtos' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                <Link to='/catalogo_de_produtos' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeCatalogo} alt='...' width='25' height='25' />
                                     Catálogo de Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/cadastro' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                <Link to='/cadastro' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeCadastrar} alt='...' width='25' height='25' />
                                     Cadastrar Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/comentarios' className="nav-link active btn_menu gap-1 d-flex align-items-center" aria-current="page">
+                                <Link to='/comentarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeComentario} alt='...' width='25' height='25' />
                                     Comentários
                                 </Link>

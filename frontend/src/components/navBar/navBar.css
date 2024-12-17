@@ -1,3 +1,6 @@
+body, html {
+    overflow-x: hidden;
+}
 .btn_menu:hover {
     background-color: rgb(153, 149, 149, 50%);
     outline: 2px solid black;
@@ -79,9 +82,26 @@
     min-width: 100px;
     height: 210px;
     top: 68px;
-    right: 20px;
+    right: 45px;
     box-shadow: 3px 3px 16px 0px rgba(231, 224, 224, 0.7);
     z-index: 2;
     font-size: 18px;
     padding: 5px;
+    animation: moveLeft 0.5s ease-in-out 1;
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translateX(200px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@media (max-width: 500px) {
+    .perfil_user {
+        top: 90px;
+        right: 70px;
+    }
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import './listaProdutos.css'
+import ModalComentario from '../modalComentario/modalComentario'
+import AlterarItem from '../modalAlterar/modalAlterar'
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState([])
@@ -16,6 +17,22 @@ function ListaProdutos() {
                 console.error('Erro ao Buscar Dados:', error)
             })
     }, [])
+
+    const excluirProduto = (id) => {
+        axios.delete(`http://localhost:3001/api/remover_produto/${id}`)
+        .then(() => {
+            alert('Produto Excluído com Sucesso!!!')
+        })
+        .catch(error => {
+            console.error('Erro ao Excluir Produto:', error)
+        })
+    }
+
+    const handleDelete = async (id) => {
+        excluirProduto(id).then(() => {
+            setProdutos(produtos.filter(produto => produto.id !==id))
+        })
+    }
 
     return (
         <div className='container-fluid'>
@@ -38,15 +55,17 @@ function ListaProdutos() {
                             </div>
                             <div className='text-center'>
                                 <div className='row p-4'>
-                                    <Link to='#' className='btn btn-info'>Comentar</Link>
-                                    <Link to='#' className='btn btn-warning mt-1'>Alterar</Link>
-                                    <Link to='#' className='btn btn-danger mt-1'>Remover</Link>
+                                    <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalComentar" data-bs-whatever="@mdo">Comentar</button>
+                                    <button type="button" className='btn btn-warning mt-1' data-bs-toggle="modal" data-bs-target="#modalAlterar" data-bs-whatever="@mdo">Alterar</button>
+                                    <button className='btn btn-danger mt-1' onClick={() => handleDelete(produto.id)}>Remover</button>
                                 </div>
                             </div>
                         </div>
                     )
                 })}
             </div>
+            <ModalComentario />
+            <AlterarItem />
         </div>
     )
 }
