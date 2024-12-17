@@ -14,7 +14,7 @@ function ModalComentario() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://192.168.0.150:3001/api/comentario_usuario', comentarios)
+        axios.post('http://localhost:3001/api/comentario_usuario', comentarios)
             .then(response => {
                 console.log(response.data)
                 alert('Comentário Enviado!!!')

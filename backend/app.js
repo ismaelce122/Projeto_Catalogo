@@ -104,14 +104,11 @@ app.get('/comentarios', async (req, res) => {
     }
 })
 
-app.delete('api/remover_produto/:id', async (req, res) => {
+app.delete('/catalogo_de_produtos/:id', async (req, res) => {
     const { id } = req.params
-    console.log(id)
-    console.log(req)
     const sql = 'DELETE FROM produtos WHERE id= ?'
     try {
         const [result] = await pool.query(sql, [id])
-        console.log(result.affectedRows)
         if (result.affectedRows > 0) {
             res.status(200).send({ message: 'Produto Excluído com Sucesso!!!' })
         } else {

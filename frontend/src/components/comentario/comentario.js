@@ -6,7 +6,7 @@ const Comentario = () => {
   const [comentarios, setComentarios] = useState([])
 
   useEffect(() => {
-    axios.get('http://192.168.0.150:3001/comentarios')
+    axios.get('http://localhost:3001/comentarios')
       .then(response => {
         console.log(response.data)
         setComentarios(response.data)

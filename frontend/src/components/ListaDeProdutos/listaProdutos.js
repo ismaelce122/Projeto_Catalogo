@@ -18,8 +18,8 @@ function ListaProdutos() {
             })
     }, [])
 
-    const excluirProduto = (id) => {
-        axios.delete(`http://localhost:3001/api/remover_produto/${id}`)
+    const excluirProduto = async (id) => {
+         await axios.delete(`http://localhost:3001/catalogo_de_produtos/${id}`)
         .then(() => {
             alert('Produto Excluído com Sucesso!!!')
         })
@@ -29,7 +29,7 @@ function ListaProdutos() {
     }
 
     const handleDelete = async (id) => {
-        excluirProduto(id).then(() => {
+        await excluirProduto(id).then(() => {
             setProdutos(produtos.filter(produto => produto.id !==id))
         })
     }
