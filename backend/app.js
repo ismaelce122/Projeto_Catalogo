@@ -104,18 +104,32 @@ app.get('/comentarios', async (req, res) => {
     }
 })
 
-app.delete('api/remover_produto/:id', async (req, res) => {
+app.delete('/catalogo_de_produtos/:id', async (req, res) => {
     const { id } = req.params
-    console.log(id)
-    console.log(req)
     const sql = 'DELETE FROM produtos WHERE id= ?'
     try {
         const [result] = await pool.query(sql, [id])
-        console.log(result.affectedRows)
         if (result.affectedRows > 0) {
             res.status(200).send({ message: 'Produto Excluído com Sucesso!!!' })
         } else {
             res.status(404).send({message: 'Produto não Encontrado :-('})
+        }
+
+    } catch (err) {
+        console.error('Erro ao Excluir Produto: ', err)
+        res.status(500).send(err)
+    }
+})
+
+app.delete('/comentarios/:id', async (req, res) => {
+    const { id } = req.params
+    const sql = 'DELETE FROM comentarios WHERE id= ?'
+    try {
+        const [result] = await pool.query(sql, [id])
+        if (result.affectedRows > 0) {
+            res.status(200).send({ message: 'Comentário Excluído com Sucesso!!!' })
+        } else {
+            res.status(404).send({message: 'Erro ao Excluir Comentário :-('})
         }
 
     } catch (err) {

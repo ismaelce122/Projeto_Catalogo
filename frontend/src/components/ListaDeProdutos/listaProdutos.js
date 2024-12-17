@@ -18,21 +18,21 @@ function ListaProdutos() {
             })
     }, [])
 
-    const excluirProduto = (id) => {
-        axios.delete(`http://localhost:3001/api/remover_produto/${id}`)
-        .then(() => {
-            alert('Produto Excluído com Sucesso!!!')
-        })
-        .catch(error => {
-            console.error('Erro ao Excluir Produto:', error)
-        })
+    const excluirProduto = async (id) => {
+        await axios.delete(`http://localhost:3001/catalogo_de_produtos/${id}`)
+            .then(() => {
+                alert('Produto Excluído com Sucesso!!!')
+            })
+            .catch(error => {
+                console.error('Erro ao Excluir Produto:', error)
+            })
     }
 
     const handleDelete = async (id) => {
-        excluirProduto(id).then(() => {
-            setProdutos(produtos.filter(produto => produto.id !==id))
+        await excluirProduto(id).then(() => {
+            setProdutos(produtos.filter(produto => produto.id !== id))
         })
-    }
+    }  
 
     return (
         <div className='container-fluid'>
@@ -55,9 +55,10 @@ function ListaProdutos() {
                             </div>
                             <div className='text-center'>
                                 <div className='row p-4'>
-                                    <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalComentar" data-bs-whatever="@mdo">Comentar</button>
+                                    <button type="button" className='btn btn-success'>Adicionar ao Carrinho</button>
+                                    <button type="button" className="btn btn-info mt-1" data-bs-toggle="modal" data-bs-target="#modalComentar" data-bs-whatever="@mdo">Comentar</button>
                                     <button type="button" className='btn btn-warning mt-1' data-bs-toggle="modal" data-bs-target="#modalAlterar" data-bs-whatever="@mdo">Alterar</button>
-                                    <button className='btn btn-danger mt-1' onClick={() => handleDelete(produto.id)}>Remover</button>
+                                    <button type='button' className='btn btn-danger mt-1' onClick={() => handleDelete(produto.id)}>Remover</button>
                                 </div>
                             </div>
                         </div>
