@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./ProductsModal.module.css";
+import styles from "./carrinho.css";
 
 const ProductsModal = ({ products, onDelete, onClose }) => {
   return (
@@ -55,11 +55,7 @@ const ProductsPage = () => {
         Ver Produtos
       </button>
       {isModalOpen && (
-        <ProductsModal
-          products={products}
-          onDelete={handleDelete}
-          onClose={toggleModal}
-        />
+          <ProductsModal products={products} onDelete={handleDelete} onClose={toggleModal} />
       )}
     </div>
   );

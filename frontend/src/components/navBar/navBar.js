@@ -59,7 +59,7 @@ function NavBar() {
                             <span className='text-light titulo'><strong>Olá, {usuario}</strong></span>
                             <div className='d-flex user' aria-current="page">
                                 <button type='button' className='btn_sair' onClick={menu_user}><img src={IconeUser} alt='Usuário' /></button>
-                                <button type='button' className='btn_sair' data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src={IconeCarrinho} alt='Carriho de Compras' /></button>
+                                <button type='button' className='btn_sair' data-bs-toggle="modal" data-bs-target="#staticBackdrop" title='carrinho de compras'><img src={IconeCarrinho} alt='Carriho de Compras' /></button>
                                 <CartModal />
                                 <div className='perfil_user' id='perfil'>
                                     <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>

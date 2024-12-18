@@ -3,9 +3,17 @@ import axios from 'axios'
 import './listaProdutos.css'
 import ModalComentario from '../modalComentario/modalComentario'
 import AlterarItem from '../modalAlterar/modalAlterar'
+import IconeAdicionarCarrinho from './adicionar_carrinho.png'
+import IconeComentario from './comentario.png'
+import IconeAlterar from './alterar_item.png'
+import IconeExcluir from './excluir.png'
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState([])
+    const [carrinho, setCarrinho] = useState(() => {
+        const salvandoCarrinho = localStorage.getItem('carrinho')
+        return salvandoCarrinho ? JSON.parse(salvandoCarrinho) : []
+    })
 
     useEffect(() => {
         axios.get('http://localhost:3001/catalogo_de_produtos')
@@ -18,21 +26,30 @@ function ListaProdutos() {
             })
     }, [])
 
-    const excluirProduto = (id) => {
-        axios.delete(`http://localhost:3001/api/remover_produto/${id}`)
-        .then(() => {
-            alert('Produto Excluído com Sucesso!!!')
-        })
-        .catch(error => {
-            console.error('Erro ao Excluir Produto:', error)
-        })
+    const excluirProduto = async (id) => {
+        await axios.delete(`http://localhost:3001/catalogo_de_produtos/${id}`)
+            .then(() => {
+                alert('Produto Excluído com Sucesso!!!')
+            })
+            .catch(error => {
+                console.error('Erro ao Excluir Produto:', error)
+            })
     }
 
     const handleDelete = async (id) => {
-        excluirProduto(id).then(() => {
-            setProdutos(produtos.filter(produto => produto.id !==id))
+        await excluirProduto(id).then(() => {
+            setProdutos(produtos.filter(produto => produto.id !== id))
         })
-    }  
+    }
+
+    useEffect(() => {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho))
+    }, [carrinho])
+
+    const adicionandoCarrinho = (produto) => {
+        setCarrinho([...carrinho, produto])
+        alert('Produto Adicionado com Sucesso!!!')
+    }
 
     return (
         <div className='container-fluid'>
@@ -55,10 +72,12 @@ function ListaProdutos() {
                             </div>
                             <div className='text-center'>
                                 <div className='row p-4'>
-                                    <button type="button" className='btn btn-success'>Adicionar ao Carrinho</button>
-                                    <button type="button" className="btn btn-info mt-1" data-bs-toggle="modal" data-bs-target="#modalComentar" data-bs-whatever="@mdo">Comentar</button>
-                                    <button type="button" className='btn btn-warning mt-1' data-bs-toggle="modal" data-bs-target="#modalAlterar" data-bs-whatever="@mdo">Alterar</button>
-                                    <button type='button' className='btn btn-danger mt-1' onClick={() => handleDelete(produto.id)}>Remover</button>
+                                    <div className='d-flex justify-content-start gap-1 p-0'>
+                                        <button type="button" className='btn btn-success p-1' title='adicionar ao carrinho' onClick={() => adicionandoCarrinho(produto)}><img src={IconeAdicionarCarrinho} alt='...' /></button>
+                                        <button type="button" className="btn btn-info p-1" data-bs-toggle="modal" data-bs-target="#modalComentar" data-bs-whatever="@mdo" title='fazer um comentário'><img src={IconeComentario} alt='...' /></button>
+                                        <button type="button" className='btn btn-warning p-1' data-bs-toggle="modal" data-bs-target="#modalAlterar" data-bs-whatever="@mdo" title='alterar item'><img src={IconeAlterar} alt='...' /></button>
+                                        <button type='button' className='btn btn-danger p-1' onClick={() => handleDelete(produto.id)} title='excluir item'><img src={IconeExcluir} alt='...' /></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -18,20 +18,20 @@ const Comentario = () => {
   }, [])
 
   const excluirComentario = async (id) => {
-          await axios.delete(`http://localhost:3001/comentarios/${id}`)
-          .then(() => {
-              alert('Comentário Excluído com Sucesso!!!')
-          })
-          .catch(error => {
-              console.error('Erro ao Excluir Comentário:', error)
-          })
-      }
-  
-      const handleDelete = async (id) => {
-          await excluirComentario(id).then(() => {
-              setComentarios(comentarios.filter(comentario => comentario.id !==id))
-          })
-      }
+    await axios.delete(`http://localhost:3001/comentarios/${id}`)
+      .then(() => {
+        alert('Comentário Excluído com Sucesso!!!')
+      })
+      .catch(error => {
+        console.error('Erro ao Excluir Comentário:', error)
+      })
+  }
+
+  const handleDelete = async (id) => {
+    await excluirComentario(id).then(() => {
+      setComentarios(comentarios.filter(comentario => comentario.id !== id))
+    })
+  }
 
   return (
     <div className='lista-usuarios mt-4 fade_in'>

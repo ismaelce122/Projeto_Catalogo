@@ -3,7 +3,7 @@ import axios from 'axios'
 import './ListaDeUsuario.css'
 
 const ListaDeUsuario = () => {
-  const [usuarios, setUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState([])
 
   useEffect(() => {
     axios.get('http://localhost:3001/lista_de_usuarios')
@@ -14,7 +14,23 @@ const ListaDeUsuario = () => {
       .catch(error => {
         console.error('Erro ao Buscar Dados:', error)
       })
-  }, []);
+  }, [])
+
+  const excluirUsuario = async (id) => {
+    await axios.delete(`http://localhost:3001/lista_de_usuarios/${id}`)
+      .then(() => {
+        alert('Usuário Excluído com Sucesso!!!')
+      })
+      .catch(error => {
+        console.error('Erro ao Excluir Usuário:', error)
+      })
+  }
+
+  const handleDelete = async (id) => {
+    await excluirUsuario(id).then(() => {
+      setUsuarios(usuarios.filter(usuario => usuario.id !== id))
+    })
+  }
 
   return (
     <div className='lista-usuarios mt-4 fade_in'>
@@ -34,14 +50,14 @@ const ListaDeUsuario = () => {
                 </li>
               </div>
               <div>
-                <button type='button' className='btn btn-danger'>Excluir</button>
+                <button type='button' className='btn btn-danger' onClick={() => handleDelete(usuario.id)}>Excluir</button>
               </div>
             </div>
           )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export default ListaDeUsuario
