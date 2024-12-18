@@ -18,19 +18,19 @@ function ListaProdutos() {
             })
     }, [])
 
-    const excluirProduto = async (id) => {
-        await axios.delete(`http://localhost:3001/catalogo_de_produtos/${id}`)
-            .then(() => {
-                alert('Produto Excluído com Sucesso!!!')
-            })
-            .catch(error => {
-                console.error('Erro ao Excluir Produto:', error)
-            })
+    const excluirProduto = (id) => {
+        axios.delete(`http://localhost:3001/api/remover_produto/${id}`)
+        .then(() => {
+            alert('Produto Excluído com Sucesso!!!')
+        })
+        .catch(error => {
+            console.error('Erro ao Excluir Produto:', error)
+        })
     }
 
     const handleDelete = async (id) => {
-        await excluirProduto(id).then(() => {
-            setProdutos(produtos.filter(produto => produto.id !== id))
+        excluirProduto(id).then(() => {
+            setProdutos(produtos.filter(produto => produto.id !==id))
         })
     }  
 
