@@ -18,7 +18,7 @@ function FormCadastro() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/api/cadastrar_produtos', produtos)
+        axios.post('http://localhost:3001/produtos/cadastrar', produtos)
             .then(response => {
                 console.log(response.data)
                 alert('Produto Cadastrado com Sucesso!!!')

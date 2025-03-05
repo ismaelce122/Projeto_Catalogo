@@ -6,7 +6,7 @@ const Comentario = () => {
   const [comentarios, setComentarios] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/comentarios')
+    axios.get('http://localhost:3001/comentarios/lista_de_comentarios')
       .then(response => {
         console.log(response.data)
         setComentarios(response.data)
@@ -18,7 +18,7 @@ const Comentario = () => {
   }, [])
 
   const excluirComentario = async (id) => {
-    await axios.delete(`http://localhost:3001/comentarios/${id}`)
+    await axios.delete(`http://localhost:3001/comentarios/lista_de_comentarios/${id}`)
       .then(() => {
         alert('Comentário Excluído com Sucesso!!!')
       })

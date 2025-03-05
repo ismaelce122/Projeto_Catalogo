@@ -12,7 +12,7 @@ const FormLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:3001/logar', {email, senha})
+      const response = await axios.post('http://localhost:3001/usuarios/login', {email, senha})
       const { token, usuario } = response.data
       // Armazenar o Token no LocalStorage
       localStorage.setItem('token', token)

@@ -21,7 +21,7 @@ function FormUsuario() {
   // Função para submeter o formulário
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/api/cadastrar_usuario', cadastrar)
+    axios.post('http://localhost:3001/usuarios/cadastrar', cadastrar)
       .then(response => {
         console.log(response.data)
         alert('Usuário Cadastrado com Sucesso!!!')

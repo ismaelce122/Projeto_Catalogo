@@ -6,7 +6,7 @@ const ListaDeUsuario = () => {
   const [usuarios, setUsuarios] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/lista_de_usuarios')
+    axios.get('http://localhost:3001/usuarios/lista_de_usuarios')
       .then(response => {
         console.log(response.data)
         setUsuarios(response.data)
@@ -17,7 +17,7 @@ const ListaDeUsuario = () => {
   }, [])
 
   const excluirUsuario = async (id) => {
-    await axios.delete(`http://localhost:3001/lista_de_usuarios/${id}`)
+    await axios.delete(`http://localhost:3001/usuarios/lista_de_usuarios/${id}`)
       .then(() => {
         alert('Usuário Excluído com Sucesso!!!')
       })

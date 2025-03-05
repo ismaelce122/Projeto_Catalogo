@@ -16,7 +16,7 @@ function ListaProdutos() {
     })
 
     useEffect(() => {
-        axios.get('http://localhost:3001/catalogo_de_produtos')
+        axios.get('http://localhost:3001/produtos/catalogo')
             .then(response => {
                 console.log(response.data)
                 setProdutos(response.data)
@@ -27,7 +27,7 @@ function ListaProdutos() {
     }, [])
 
     const excluirProduto = async (id) => {
-        await axios.delete(`http://localhost:3001/catalogo_de_produtos/${id}`)
+        await axios.delete(`http://localhost:3001/produtos/catalogo/${id}`)
             .then(() => {
                 alert('Produto Excluído com Sucesso!!!')
             })
