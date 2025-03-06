@@ -41,7 +41,7 @@ function ModalCart() {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                        <button type="button" className="btn btn-primary">Avança</button>
+                        <button type="button" className="btn btn-primary">Avançar</button>
                     </div>
                 </div>
             </div>
