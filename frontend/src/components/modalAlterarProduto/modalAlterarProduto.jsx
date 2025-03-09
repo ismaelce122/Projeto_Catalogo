@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 
-function AlterarItem({ id, isOpen, onClose }) {
+function ModalAlterarProduto({ id, isOpen, onClose }) {
     const [produtos, setProdutos] = useState({
             nome: '',
             descricao: '',
@@ -85,4 +85,4 @@ function AlterarItem({ id, isOpen, onClose }) {
     )
 }
 
-export default AlterarItem
+export default ModalAlterarProduto

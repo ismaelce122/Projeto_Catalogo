@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import IconeExcluir from './excluir.png'
+import IconeExcluir from './image/excluir.png'
 
-function ModalCart() {
+function ModalCarrinho() {
     const [carrinho] = useState(() => {
         const salvandoCarrinho = localStorage.getItem('carrinho')
         return salvandoCarrinho ? JSON.parse(salvandoCarrinho) : []
@@ -27,7 +27,7 @@ function ModalCart() {
                                                     <img src={cart.img_url} alt={cart.nome} style={{ width: '50px', height: '50px' }} />
                                                 </div>
                                                 <span>{cart.nome}</span>
-                                                <span className="ms-4">{cart.preco}</span>
+                                                <span className="ms-4">R$ {cart.preco}</span>
                                             </div>
                                             <div>
                                                 <button type='button' className='btn btn-danger' title='excluir item'><img src={IconeExcluir} alt='...' /></button>
@@ -49,4 +49,4 @@ function ModalCart() {
     )
 }
 
-export default ModalCart
+export default ModalCarrinho

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import './ListaDeUsuario.css'
+import './usuariosCadastrados.css'
 
-const ListaDeUsuario = () => {
+const UsuariosCadastrados = () => {
   const [usuarios, setUsuarios] = useState([])
 
   useEffect(() => {
@@ -33,8 +33,7 @@ const ListaDeUsuario = () => {
   }
 
   return (
-    <div className='lista-usuarios mt-4 fade_in'>
-      <h1>Lista de Usuários</h1>
+    <div>
       <ul>
         {usuarios.map((usuario) => {
           return (
@@ -60,4 +59,4 @@ const ListaDeUsuario = () => {
   )
 }
 
-export default ListaDeUsuario
+export default UsuariosCadastrados

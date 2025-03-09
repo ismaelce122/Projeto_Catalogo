@@ -1,6 +1,7 @@
 import ListaProdutos from "../../components/ListaDeProdutos/listaProdutos"
-import './catalogo.css'
-function Catalogo() {
+import './catalogoProdutos.css'
+
+function CatalogoProdutos() {
     return (
         <div className="mt-2">
             <div className="container catalogo mb-2">
@@ -11,4 +12,4 @@ function Catalogo() {
     )
 }
 
-export default Catalogo
+export default CatalogoProdutos

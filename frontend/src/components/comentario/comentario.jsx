@@ -34,8 +34,7 @@ const Comentario = () => {
   }
 
   return (
-    <div className='lista-usuarios mt-4 fade_in'>
-      <h1>Comentários</h1>
+    <div>
       <ul>
         {comentarios.map((comentario) => {
           return (
@@ -61,4 +60,4 @@ const Comentario = () => {
   )
 }
 
-export default Comentario;
+export default Comentario

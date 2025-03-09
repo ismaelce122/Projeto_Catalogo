@@ -1,0 +1,19 @@
+.lista_produtos {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 300px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    animation: fadeIn 0.5s ease-in-out 1;
+}

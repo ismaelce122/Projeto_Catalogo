@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './listaProdutos.css'
 import ModalComentario from '../modalComentario/modalComentario'
-import AlterarItem from '../modalAlterar/modalAlterar'
-import IconeAdicionarCarrinho from './adicionar_carrinho.png'
-import IconeComentario from './comentario.png'
-import IconeAlterar from './alterar_item.png'
-import IconeExcluir from './excluir.png'
+import ModalAlterarProduto from '../modalAlterarProduto/modalAlterarProduto'
+import IconeAdicionarCarrinho from './image/adicionar_carrinho.png'
+import IconeComentario from './image/comentario.png'
+import IconeAlterar from './image/alterar_item.png'
+import IconeExcluir from './image/excluir.png'
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState([])
@@ -66,8 +66,8 @@ function ListaProdutos() {
                             <div className='text-center mt-1'>
                                 <div className='row'>
                                     <span className='col-12'>{produto.descricao}</span>
-                                    <span className='col-12'>{produto.categoria}</span>
-                                    <span className='col-12'>Preço: R${produto.preco}</span>
+                                    <span className='col-12'>Categoria: {produto.categoria}</span>
+                                    <span className='col-12'>Preço: R$ {produto.preco}</span>
                                 </div>
                             </div>
                             <div className='text-center'>
@@ -85,7 +85,7 @@ function ListaProdutos() {
                 })}
             </div>
             <ModalComentario />
-            <AlterarItem />
+            <ModalAlterarProduto />
         </div>
     )
 }

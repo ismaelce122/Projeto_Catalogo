@@ -39,34 +39,36 @@ function FormUsuario() {
 
   return (
     <div className="container d-flex justify-content-center fade_in mt-2 p-2">
-      <form className="form-control form_usuario text-center" onSubmit={handleSubmit}>
-        <h2 className="text-center">Cadastre-se</h2>
+      <form className="form-control form_usuario p-4" onSubmit={handleSubmit}>
+        <h1 className="text-center">Cadastre-se</h1>
+        <label><strong>Nome:</strong></label>
         <input
-          className="form-control mb-2"
+          className="form-control mb-2 p-2"
           type="text"
           name="nome"
-          placeholder="Nome"
           value={cadastrar.nome}
           onChange={handleChange}
         />
+        <label><strong>E-mail:</strong></label>
         <input
-          className="form-control mb-2"
+          className="form-control mb-2 p-2"
           type="email"
           name="email"
-          placeholder="E-mail"
           value={cadastrar.email}
           onChange={handleChange}
         />
+        <label><strong>Senha:</strong></label>
         <input
-          className="form-control"
+          className="form-control p-2 mb-3"
           type="password"
           name="senha"
-          placeholder="Senha"
           value={cadastrar.senha}
           onChange={handleChange}
         />
         <div className="text-start" style={{color: 'red'}}>{erro}</div>
-        <button className="btn btn-primary mb-2 mt-2" type="submit">Cadastrar</button>
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-primary" type="submit">Cadastrar</button>
+        </div>
       </form>
     </div>
   );

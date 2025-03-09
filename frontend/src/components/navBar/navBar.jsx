@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import IconeUser from './user.png'
-import IconeSair from './sair.png'
-import IconeHome from './home.png'
-import IconeUsuarios from './usuarios_cadastrados.png'
-import IconeCatalogo from './catalogo_de_produtos.png'
-import IconeCadastrar from './cadastrar_produto.png'
-import IconeComentario from './comentarios.png'
-import IconePerfil from './perfil.png'
-import IconeFavorito from './favorito.png'
-import IconeMensagem from './mensagem.png'
-import IconeNotificacao from './notificacao.png'
-import IconeCarrinho from './carrinho.png'
+import IconeUser from './image/user.png'
+import IconeSair from './image/sair.png'
+import IconeHome from './image/home.png'
+import IconeUsuarios from './image/usuarios_cadastrados.png'
+import IconeCatalogo from './image/catalogo_de_produtos.png'
+import IconeCadastrar from './image/cadastrar_produto.png'
+import IconeComentario from './image/comentarios.png'
+import IconePerfil from './image/perfil.png'
+import IconeFavorito from './image/favorito.png'
+import IconeMensagem from './image/mensagem.png'
+import IconeNotificacao from './image/notificacao.png'
+import IconeCarrinho from './image/carrinho.png'
 import './navBar.css'
-import CartModal from '../modal/CartModal'
+import ModalCarrinho from '../modalCarrinho/modalCarrinho'
 
 function NavBar() {
     const navigate = useNavigate()
@@ -60,13 +60,13 @@ function NavBar() {
                             <div className='d-flex user' aria-current="page">
                                 <button type='button' className='btn_sair' onClick={menu_user}><img src={IconeUser} alt='Usuário' /></button>
                                 <button type='button' className='btn_sair' data-bs-toggle="modal" data-bs-target="#staticBackdrop" title='carrinho de compras'><img src={IconeCarrinho} alt='Carriho de Compras' /></button>
-                                <CartModal />
+                                <ModalCarrinho />
                                 <div className='perfil_user' id='perfil'>
                                     <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
                                         <img src={IconePerfil} alt='Logout' width='20' height='20' />
                                         Perfil
                                     </Link>
-                                    <Link to="#" className='menu_user mb-1 gap-1 d-flex align-items-center'>
+                                    <Link to="/teste" className='menu_user mb-1 gap-1 d-flex align-items-center'>
                                         <img src={IconeFavorito} alt='Logout' width='20' height='20' />
                                         Favoritos
                                     </Link>
@@ -88,10 +88,10 @@ function NavBar() {
                     ) : (
                         <div className='d-flex align-items-center gap-3'>
                             <li className="nav-item d-flex">
-                                <Link to='/login' className="d-flex justify-content-center btn_login" aria-current="page">Login</Link>
+                                <Link to='/usuario/login' className="d-flex justify-content-center btn_login" aria-current="page">Login</Link>
                             </li>
                             <li className="nav-item d-flex">
-                                <Link to='/usuario' className="d-flex justify-content-center btn_login" aria-current="page">Cadastre-se</Link>
+                                <Link to='/usuario/cadastrar' className="d-flex justify-content-center btn_login" aria-current="page">Cadastre-se</Link>
                             </li>
                         </div>
                     )}
@@ -108,25 +108,25 @@ function NavBar() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/lista_de_usuarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
+                                <Link to='/usuario/lista_de_usuarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeUsuarios} alt='...' width='25' height='25' />
                                     Usuários
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/catalogo_de_produtos' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
+                                <Link to='/produtos/catalogo_de_produtos' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeCatalogo} alt='...' width='25' height='25' />
                                     Catálogo de Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/cadastro' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
+                                <Link to='/produtos/cadastrar' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeCadastrar} alt='...' width='25' height='25' />
                                     Cadastrar Produtos
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/comentarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
+                                <Link to='/comentarios/lista_de_comentarios' className="nav-link active btn_menu gap-1 d-flex align-items-center justify-content-center" aria-current="page">
                                     <img src={IconeComentario} alt='...' width='25' height='25' />
                                     Comentários
                                 </Link>

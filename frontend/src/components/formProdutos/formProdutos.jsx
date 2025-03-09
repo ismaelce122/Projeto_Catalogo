@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import './formCadastro.css'
+import './formProdutos.css'
 
-function FormCadastro() {
+function FormProdutos() {
     const [produtos, setProdutos] = useState({
         nome: '',
         descricao: '',
@@ -62,4 +62,4 @@ function FormCadastro() {
     )
 }
 
-export default FormCadastro
+export default FormProdutos
